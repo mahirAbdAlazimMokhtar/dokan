@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سياسة الخصوصية — تطبيق دُكّان</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #1A5276;
+      --accent:  #2E86C1;
+      --light:   #D6EAF8;
+      --bg:      #F5F8FA;
+      --text:    #2C3E50;
+      --muted:   #7F8C8D;
+      --border:  #BDC3C7;
+      --white:   #FFFFFF;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 860px;
+      margin: 40px auto;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 32px rgba(0,0,0,.10);
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    .doc-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: #fff;
+      padding: 48px 48px 36px;
+      text-align: center;
+    }
+    .doc-header .app-icon { font-size: 54px; line-height: 1; margin-bottom: 12px; }
+    .doc-header h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; }
+    .doc-header .subtitle {
+      font-size: 18px; font-weight: 500; opacity: .85; margin-top: 4px;
+    }
+    .doc-header .meta {
+      margin-top: 20px;
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 13px;
+      letter-spacing: .3px;
+    }
+
+    /* ── Top nav bar ── */
+    .top-bar {
+      background: var(--primary);
+      padding: 10px 48px;
+      font-size: 12px;
+      color: rgba(255,255,255,.7);
+      border-bottom: 3px solid var(--accent);
+      text-align: center;
+    }
+
+    /* ── Body ── */
+    .doc-body { padding: 40px 48px 56px; }
+
+    /* Introduction box */
+    .intro-box {
+      background: var(--light);
+      border-right: 5px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 36px;
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--primary);
+    }
+
+    /* Sections */
+    .section { margin-bottom: 40px; }
+
+    .section-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--primary);
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--accent);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .num {
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .subsection { margin-bottom: 20px; }
+    .subsection-title {
+      font-size: 15px; font-weight: 700; color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    /* Bullet list */
+    ul.policy-list {
+      list-style: none;
+      padding: 0;
+    }
+    ul.policy-list li {
+      padding: 7px 0 7px 0;
+      padding-right: 24px;
+      position: relative;
+      border-bottom: 1px dashed #e0e7ef;
+      font-size: 14.5px;
+    }
+    ul.policy-list li:last-child { border-bottom: none; }
+    ul.policy-list li::before {
+      content: "◆";
+      position: absolute;
+      right: 0;
+      color: var(--accent);
+      font-size: 10px;
+      top: 11px;
+    }
+
+    /* Info note */
+    .note {
+      background: #FEF9E7;
+      border-right: 4px solid #F39C12;
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 13.5px;
+      color: #7D6608;
+      margin-top: 12px;
+    }
+
+    /* Contact card */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .contact-card {
+      background: var(--light);
+      border-radius: 10px;
+      padding: 18px 20px;
+      text-align: center;
+      border: 1px solid #c8dff0;
+    }
+    .contact-card .icon { font-size: 26px; margin-bottom: 8px; }
+    .contact-card .label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+    .contact-card .value { font-size: 14px; font-weight: 700; color: var(--primary); word-break: break-all; }
+
+    /* Firebase / legal badges */
+    .badge-row {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;
+    }
+    .badge {
+      background: var(--light);
+      border: 1px solid #aac8e4;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .doc-footer {
+      background: var(--primary);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 18px 48px;
+      font-size: 13px;
+      border-top: 3px solid var(--accent);
+    }
+    .doc-footer strong { color: #fff; }
+
+    /* Closing banner */
+    .closing {
+      text-align: center;
+      padding: 28px 40px;
+      background: linear-gradient(135deg, #EBF5FB, #D6EAF8);
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .closing p { font-size: 17px; font-weight: 700; color: var(--primary); }
+    .closing small { color: var(--muted); font-size: 13px; }
+
+    @media print {
+      body { background: #fff; }
+      .page { box-shadow: none; margin: 0; border-radius: 0; }
+    }
+    @media (max-width: 600px) {
+      .doc-header, .doc-body, .doc-footer { padding-right: 24px; padding-left: 24px; }
+      .doc-header h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="doc-header">
+    <div class="app-icon">🛍️</div>
+    <h1>تطبيق دُكّان</h1>
+    <div class="subtitle">سياسة الخصوصية</div>
+    <div class="meta">📅 آخر تحديث: 16 مارس 2025 &nbsp;|&nbsp; الإصدار 1.0</div>
+  </div>
+
+  <div class="top-bar">
+    هذه الوثيقة تشرح كيفية جمع بياناتك واستخدامها وحمايتها عند استخدام تطبيق دُكّان
+  </div>
+
+  <!-- Body -->
+  <div class="doc-body">
+
+    <div class="intro-box">
+      نحن في تطبيق <strong>دُكّان</strong> نلتزم التزاماً تاماً بحماية خصوصيتك. يهدف هذا التطبيق إلى تبسيط تجربة التسوق وإدارة المتاجر للبائعين والمشترين. توضّح هذه السياسة كيفية جمع معلوماتك واستخدامها وحمايتها، وكيف يمكنك التحكم فيها.
+    </div>
+
+    <!-- 1 -->
+    <div class="section">
+      <div class="section-title"><span class="num">1</span> المعلومات التي نجمعها</div>
+
+      <div class="subsection">
+        <div class="subsection-title">1.1 المعلومات المطلوبة للتسجيل</div>
+        <ul class="policy-list">
+          <li><strong>رقم الجوال:</strong> للتحقق من هويتك عبر رمز OTP (كلمة مرور لمرة واحدة)</li>
+          <li><strong>نوع الحساب:</strong> بائع أو مشترٍ</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">1.2 معلومات المتجر (للبائعين)</div>
+        <ul class="policy-list">
+          <li>اسم المتجر وشعاره وبياناته التعريفية</li>
+          <li>الفئات والمنتجات المعروضة وأسعارها</li>
+          <li>معلومات الطلبات والمبيعات</li>
+          <li>عنوان المتجر ومنطقة التوصيل</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">1.3 معلومات المشترين</div>
+        <ul class="policy-list">
+          <li>الاسم وعنوان التوصيل</li>
+          <li>سجل الطلبات والمشتريات</li>
+          <li>التقييمات والمراجعات</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">1.4 المعلومات التلقائية</div>
+        <ul class="policy-list">
+          <li>معرّف الجهاز (FCM Token) لإرسال الإشعارات</li>
+          <li>بيانات الجلسة: وقت الدخول وآخر نشاط</li>
+          <li>بيانات الاستخدام: الصفحات المُزارة وعمليات البحث</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">1.5 معلومات الموقع الجغرافي</div>
+        <ul class="policy-list">
+          <li>موقع المتجر: يُجمع عند إعداد البائع للمتجر</li>
+          <li>موقع التوصيل: يُجمع عند تأكيد المشتري للطلب</li>
+        </ul>
+        <div class="note">⚠️ لا نجمع موقعك إلا بموافقتك الصريحة، ويمكنك إلغاء هذه الموافقة في أي وقت من إعدادات الجهاز.</div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="section">
+      <div class="section-title"><span class="num">2</span> كيف نستخدم معلوماتك</div>
+
+      <div class="subsection">
+        <div class="subsection-title">2.1 تقديم الخدمة الأساسية</div>
+        <ul class="policy-list">
+          <li>التحقق من هويتك وتسجيل الدخول بأمان</li>
+          <li>إنشاء وإدارة حسابك (بائع / مشترٍ)</li>
+          <li>معالجة الطلبات والتواصل بين البائع والمشتري</li>
+          <li>إرسال إشعارات الطلبات والتحديثات الفورية</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">2.2 تحسين تجربة المستخدم</div>
+        <ul class="policy-list">
+          <li>تحليل بيانات الاستخدام لتطوير الميزات</li>
+          <li>تقديم توصيات مخصصة للمشترين</li>
+          <li>حل المشكلات التقنية والأعطال</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">2.3 الأمان والحماية</div>
+        <ul class="policy-list">
+          <li>رصد الأنشطة المشبوهة ومنع الاحتيال</li>
+          <li>حماية حسابك من الوصول غير المصرح به</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="section">
+      <div class="section-title"><span class="num">3</span> كيف نخزن معلوماتك</div>
+
+      <div class="subsection">
+        <div class="subsection-title">3.1 التخزين الآمن</div>
+        <ul class="policy-list">
+          <li>البيانات الحساسة (رقم الجوال، بيانات الدفع) مُشفَّرة بالكامل</li>
+          <li>البيانات غير الحساسة تُخزَّن محلياً على جهازك</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">3.2 التخزين السحابي — Google Firebase</div>
+        <ul class="policy-list">
+          <li><strong>Firebase Authentication:</strong> بيانات تسجيل الدخول</li>
+          <li><strong>Cloud Firestore:</strong> بيانات المتاجر والمنتجات والطلبات</li>
+          <li><strong>Firebase Storage:</strong> صور المنتجات وشعارات المتاجر</li>
+          <li><strong>Firebase Cloud Messaging:</strong> نظام الإشعارات</li>
+        </ul>
+        <div class="badge-row">
+          <span class="badge">☁️ Google Firebase</span>
+          <span class="badge">🔐 Firebase Auth</span>
+          <span class="badge">🗄️ Cloud Firestore</span>
+          <span class="badge">🔔 FCM</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">3.3 مدة الاحتفاظ بالبيانات</div>
+        <ul class="policy-list">
+          <li>نحتفظ ببياناتك طالما كان حسابك نشطاً</li>
+          <li>عند حذف الحساب، تُحذف جميع البيانات خلال 30 يوماً</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section">
+      <div class="section-title"><span class="num">4</span> مشاركة المعلومات</div>
+
+      <div class="subsection">
+        <div class="subsection-title">4.1 لا نبيع بياناتك</div>
+        <p style="font-size:14.5px; line-height:1.8;">نلتزم التزاماً صارماً بعدم بيع أو تأجير أو الإفصاح عن معلوماتك الشخصية لأي طرف ثالث لأغراض تجارية.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">4.2 المشاركة المحدودة والضرورية</div>
+        <ul class="policy-list">
+          <li><strong>بين البائع والمشتري:</strong> عند تأكيد الطلب تُشارَك تفاصيل محدودة (الاسم، عنوان التوصيل، رقم الطلب) فقط</li>
+          <li><strong>مزودو الخدمة:</strong> Google Firebase وشركاء الدفع — ملتزمون بسياسات خصوصية صارمة</li>
+          <li><strong>الامتثال القانوني:</strong> عند الطلب الرسمي القانوني فقط</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="section">
+      <div class="section-title"><span class="num">5</span> أمان معلوماتك</div>
+      <ul class="policy-list">
+        <li><strong>التشفير الكامل:</strong> HTTPS لجميع الاتصالات بين التطبيق والخوادم</li>
+        <li><strong>المصادقة القوية:</strong> رمز OTP لكل عملية تسجيل دخول</li>
+        <li><strong>قواعد أمان Firestore:</strong> صلاحيات وصول دقيقة لكل مستخدم</li>
+        <li><strong>الوصول المحدود:</strong> موظفو الدعم المصرح لهم فقط يمكنهم الوصول للبيانات</li>
+        <li><strong>المراقبة المستمرة:</strong> رصد الأنشطة غير المعتادة على مدار الساعة</li>
+      </ul>
+    </div>
+
+    <!-- 6 -->
+    <div class="section">
+      <div class="section-title"><span class="num">6</span> حقوقك</div>
+
+      <div class="subsection">
+        <div class="subsection-title">6.1 الوصول إلى بياناتك</div>
+        <p style="font-size:14.5px; line-height:1.8;">يمكنك الاطلاع على جميع بياناتك الشخصية من خلال إعدادات الحساب داخل التطبيق.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">6.2 التعديل</div>
+        <p style="font-size:14.5px; line-height:1.8;">يمكنك تحديث بياناتك (الاسم، البريد، العنوان، شعار المتجر) في أي وقت من إعدادات الملف الشخصي.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">6.3 حذف الحساب</div>
+        <p style="font-size:14.5px; line-height:1.8;">يمكنك حذف حسابك بالكامل من إعدادات التطبيق. سيتم حذف جميع بياناتك خلال 30 يوماً.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">6.4 سحب الموافقة</div>
+        <p style="font-size:14.5px; line-height:1.8;">يمكنك سحب موافقتك على جمع الموقع الجغرافي أو الإشعارات في أي وقت من إعدادات الجهاز.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section">
+      <div class="section-title"><span class="num">7</span> الإشعارات</div>
+      <ul class="policy-list">
+        <li><strong>إشعارات الطلبات:</strong> تأكيد الطلب، تحديث الحالة، التوصيل</li>
+        <li><strong>إشعارات المتجر (للبائعين):</strong> طلبات جديدة، مراجعات، تحديثات المخزون</li>
+        <li><strong>إشعارات عامة:</strong> عروض وتحديثات التطبيق</li>
+      </ul>
+      <div class="note">💡 يمكنك إدارة الإشعارات وتخصيصها من: الإعدادات ← الإشعارات داخل التطبيق.</div>
+    </div>
+
+    <!-- 8 -->
+    <div class="section">
+      <div class="section-title"><span class="num">8</span> خصوصية الأطفال</div>
+      <p style="font-size:14.5px; line-height:1.85;">
+        تطبيق دُكّان مخصص للمستخدمين الذين تجاوزوا <strong>13 عاماً</strong>. لا نجمع بيانات من الأطفال دون سن 13 عن علم ووعي. إذا اكتشفنا ذلك، سنحذف البيانات فوراً. إذا كنت وليّاً وتعتقد أن طفلك استخدم التطبيق يرجى التواصل معنا.
+      </p>
+    </div>
+
+    <!-- 9 -->
+    <div class="section">
+      <div class="section-title"><span class="num">9</span> تحديثات سياسة الخصوصية</div>
+      <p style="font-size:14.5px; line-height:1.85; margin-bottom:12px;">قد نحدّث هذه السياسة بشكل دوري. سنُعلمك بأي تغييرات جوهرية عبر:</p>
+      <ul class="policy-list">
+        <li>إشعار داخل التطبيق</li>
+        <li>رسالة نصية على رقم جوالك المسجل</li>
+        <li>البريد الإلكتروني (إن أضفته)</li>
+      </ul>
+      <p style="font-size:14px; margin-top:12px; color:var(--muted);">استمرار استخدامك للتطبيق بعد التحديث يُعدّ موافقةً على السياسة الجديدة.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section">
+      <div class="section-title"><span class="num">10</span> الامتثال القانوني</div>
+      <ul class="policy-list">
+        <li>نظام حماية البيانات الشخصية في المملكة العربية السعودية (PDPL)</li>
+        <li>اللائحة العامة لحماية البيانات (GDPR) عند الانطباق</li>
+        <li>سياسة خصوصية Google Firebase</li>
+      </ul>
+      <div class="badge-row" style="margin-top:14px;">
+        <span class="badge">🇸🇦 PDPL</span>
+        <span class="badge">🇪🇺 GDPR</span>
+        <span class="badge">☁️ Firebase Privacy</span>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="section">
+      <div class="section-title"><span class="num">11</span> تواصل معنا</div>
+      <p style="font-size:14.5px; line-height:1.8; margin-bottom:16px;">إذا كان لديك أي استفسار أو مخاوف بشأن خصوصيتك، يرجى التواصل معنا:</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="icon">📧</div>
+          <div class="label">البريد الإلكتروني</div>
+          <div class="value">mahirmokhtar22@gmail.com</div>
+        </div>
+        <div class="contact-card">
+          <div class="icon">📱</div>
+          <div class="label">رقم الهاتف</div>
+          <div class="value" dir="ltr">0535801151</div>
+        </div>
+        <div class="contact-card">
+          <div class="icon">🌍</div>
+          <div class="label">العنوان</div>
+          <div class="value">المملكة العربية السعودية</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing -->
+    <div class="closing">
+      <p>شكراً لثقتك في تطبيق دُكّان 🛍️</p>
+      <small>نحن هنا لحماية بياناتك وتقديم أفضل تجربة تسوق</small>
+    </div>
+
+  </div><!-- /doc-body -->
+
+  <!-- Footer -->
+  <div class="doc-footer">
+    جميع الحقوق محفوظة &copy; 2025 <strong>تطبيق دُكّان</strong> &nbsp;|&nbsp; الإصدار 1.0 &nbsp;|&nbsp; آخر تحديث: 16 مارس 2025
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
